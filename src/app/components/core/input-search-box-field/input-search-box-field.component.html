@@ -1,0 +1,26 @@
+<mat-form-field class="input-search-box-full-width">
+  <mat-icon matSuffix>search</mat-icon>
+  <input #sbx
+         id="inputAutoComplete"
+         autocomplete="off"
+         type="text"
+         placeholder="{{placeHolder}}"
+         aria-label="Number"
+         matInput
+         [formControl]="searchBoxControl"
+         [matAutocomplete]="autoData"
+         (keyup)="keyUpEvent($event.keyCode,$event.target.value)"
+         (keydown)="keyDownEvent($event.keyCode,$event.target.value)"
+         (focusout)="lostFocus()"
+         (focus)="getFocus()"
+         #trigger="matAutocompleteTrigger"
+         onClick="this.setSelectionRange(0, this.value.length)"
+          >
+  <mat-autocomplete #autoData="matAutocomplete" [displayWith]="displayFn">
+      <mat-option *ngFor="let option of itemSource" [value]="option"  #matOption
+                   (click)="onItemClick(option)"
+                   (onSelectionChange)="onSelectedItem($event.source.selected, option);">
+          {{displayFn(option)}}
+      </mat-option>
+  </mat-autocomplete>
+</mat-form-field>

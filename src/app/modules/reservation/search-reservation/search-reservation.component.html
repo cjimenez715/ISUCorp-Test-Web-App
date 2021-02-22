@@ -1,0 +1,65 @@
+<div class="row mt-3">
+  <div class="offset-sm-3 col-12 col-sm-6">
+    <div class="row pt-2 pr-2 pl-2">
+      <div class="col-sm-12 col-md-6 col-xl-4">
+        <h1 class="subheader-title title">
+          <span class="ml-1" i18n>Reservations List</span>
+        </h1>
+      </div>
+      <div class="col-sm-12 col-md-6 col-xl-5">
+        <p>Featuring mouthwatering combinations with a choice of five different salads, six enticing appetizers, six main entrees and five choicest desserts. Free flowing bubbly and soft drinks. All for just $19.99 per person </p>
+      </div>
+      <div class="col-sm-12 col-md-12 col-xl-3 d-none d-sm-block">
+        <button mat-raised-button color="primary"
+                  (click)="navigateToCreateReservation()"
+                  i18n>Create Reservation</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row mt-3">
+  <div class="offset-sm-3 col-12 col-sm-6">
+    <div class="border-faded bg-white bg-faded p-3 mb-g mat-elevation-z2">
+      <div class="row pt-2 pr-2 pl-2">
+        <div class="col-sm-12 col-md-12 col-xl-12 mat-cv-ch">
+            <mat-grid-list
+            rowHeight="60"
+            gutterSize="6px"
+            cols="1">
+            <mat-grid-tile *ngFor="let reservations of reservationPager.Items">
+              <a class="grid-list-item mat-body mat-elevation-z2"
+                mat-ripple
+                [href]="">
+                <mat-icon>insert_drive_file</mat-icon>
+
+                <div class="flex-remain">
+                  <span class="flex-column1">
+                      {{reservations.ContactName}}
+                  </span>
+                  <span class="flex-column2">{{reservations.ReservationDate | date: 'EEEE, MMMM d, y, h:mm:ss a'}}</span>
+                </div>
+
+                <div class="flex-remain">
+                  <span class="flex-columnR">
+                      Ranking
+                  </span>
+                  <span  mat-icon-button *ngFor="let star of stars" matTooltipPosition="above">
+                    <mat-icon class="yellow-icon">
+                      star
+                    </mat-icon>
+                  </span>
+                </div>
+              </a>
+            </mat-grid-tile>
+          </mat-grid-list>
+          <mat-paginator
+            [length]="reservationPager.Count"
+            [pageSizeOptions]="[10]"
+            (page)="searchPager($event)">
+          </mat-paginator>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

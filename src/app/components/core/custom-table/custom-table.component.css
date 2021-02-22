@@ -1,0 +1,76 @@
+table{
+  width: 100%;
+}
+
+.edit {
+  margin-right: 10px;
+}
+
+.edit > i {
+  color: rgb(145, 12, 12);
+  cursor: pointer;
+}
+
+.delete > i {
+  color: rgb(145, 12, 12);
+  cursor: pointer;
+}
+
+.delete > a {
+  pointer-events: none;
+}
+
+mat-header-cell {
+  display: flex;
+  background-color:rgb(145, 12, 12);
+  font-weight: bolder;
+  color: white;
+}
+
+.header-custom-action {
+
+  justify-content: flex-end;
+  padding-right: 20px;
+}
+
+.header-custom-action-cell {
+  padding-right: 10px;
+}
+
+.mat-row.hovered {
+  background: #eee;
+}
+
+.mat-row.highlighted {
+  background:#b4b1b1;
+}
+
+.mat-progress-table {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+mat-row:focus {
+  outline: none;
+}
+
+.mat-table__wrapper .mat-table {
+  min-width: auto !important;
+  width: 100% !important;
+}
+
+.mat-header-row {
+  width: 100%;
+}
+
+.mat-row {
+  width: 100%;
+}
+
+.table-container {
+  margin-bottom: 25px;
+  height: 450px;
+  overflow: auto;
+}
+

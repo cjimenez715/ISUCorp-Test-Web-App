@@ -1,0 +1,76 @@
+<div [ngClass]="{'table-container mat-elevation-z4' : isTableContainer, 'mat-elevation-z4': !isTableContainer}" >
+  <mat-table #table mat-table [dataSource]="dataSource" matSort>
+
+      <ng-container *ngFor="let column of columns" [cdkColumnDef]="column.columnDef">
+
+          <div *ngIf="column.isSortable; else elseValue" >
+            <mat-header-cell *cdkHeaderCellDef mat-sort-header [ngStyle]="column.width | maxWidth">{{ column.header }}</mat-header-cell>
+          </div>
+          <ng-template #elseValue>
+            <mat-header-cell *cdkHeaderCellDef [ngStyle]="column.width | maxWidth">{{ column.header }}</mat-header-cell>
+          </ng-template>
+
+          <div *ngIf="column.propertyType === propertyType.String" >
+              <mat-cell *cdkCellDef="let row"  [ngStyle]="column.width | maxWidth">{{ column.cell(row, column.propertyType, column.columnDef) }}</mat-cell>
+          </div>
+
+          <div *ngIf="column.propertyType === propertyType.Date" >
+              <mat-cell  *cdkCellDef="let row"[ngStyle]="column.width | maxWidth">{{ column.cell(row, column.propertyType, column.columnDef) | date: 'MM/dd/yyyy' }}</mat-cell>
+          </div>
+
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+          <mat-header-cell mat-header-cell *matHeaderCellDef [ngClass]="'header-custom-action'">{{actionLabel}}</mat-header-cell>
+          <mat-cell *matCellDef="let row" [ngClass]="'header-custom-action header-custom-action-cell'" (click)="$event.stopPropagation()">
+              <div *ngFor="let action of actions">
+                  <a href="javascript:void(0)" class="edit" (click)="actionEvent(row, action.FunctionName)">
+                      <i class="{{action.Icon}}">
+                          {{action.Title}}
+                      </i>
+                  </a>
+              </div>
+
+              <div *ngIf="showEditIcon">
+                  <button mat-icon-button color="primary" (click)="editEvent(row)" matTooltip="Editar">
+                      <mat-icon>edit</mat-icon>
+                  </button>
+              </div>
+
+              <div *ngIf="showDeleteIcon">
+                  <button mat-icon-button color="primary" (click)="deleteEvent(row)" matTooltip="Eliminar">
+                      <mat-icon>delete</mat-icon>
+                  </button>
+              </div>
+          </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns sticky: true"></mat-header-row>
+      <mat-row  *matRowDef="let row; columns: displayedColumns; let i = index"
+                [ngClass]="{hovered: row.hovered, highlighted: row.highlighted && (isSelectable || isMultiSelectable)}"
+                (click)="highlight(row)"
+                (dblclick)="navigateTo()"
+                (mouseover)="row.hovered = true"
+                (mouseout)="row.hovered = false"
+                tabindex="999"
+                (keydown.arrowdown)="arrowDownEvent()"
+                (keydown.arrowup)="arrowUpEvent()"
+                (keydown.enter)="navigateTo()">
+      </mat-row>
+  </mat-table>
+
+  <mat-card *ngIf="isLoading" class="mat-progress-table">
+      <mat-progress-spinner
+        color="primary"
+        mode="indeterminate">
+      </mat-progress-spinner>
+  </mat-card>
+
+  <mat-paginator *ngIf="usePaginator" #paginator
+      [length]="totalRows"
+      [pageSizeOptions]="[10]"
+      (page)="getServerData($event)">
+
+  </mat-paginator>
+</div>
+

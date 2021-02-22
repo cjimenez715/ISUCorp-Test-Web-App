@@ -1,0 +1,89 @@
+<div class="row mt-3">
+  <div class="offset-sm-3 col-12 col-sm-6">
+    <div class="row pt-2 pr-2 pl-2">
+      <div class="col-sm-12 col-md-6 col-xl-4">
+        <h1 class="subheader-title title">
+          <span class="ml-1" i18n>Create Reservation</span>
+        </h1>
+      </div>
+      <div class="col-sm-12 col-md-6 col-xl-5">
+        <p>Featuring mouthwatering combinations with a choice of five different salads, six enticing appetizers, six main entrees and five choicest desserts. Free flowing bubbly and soft drinks. All for just $19.99 per person </p>
+      </div>
+      <div class="col-sm-12 col-md-12 col-xl-3 d-none d-sm-block">
+        <button class="custom-button mr-2" mat-raised-button (click)="cancel()" i18n>
+          Reservation List
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row mt-3">
+  <div class="offset-sm-3 col-12 col-sm-6">
+      <div class="border-faded bg-white bg-faded p-3 mb-g mat-elevation-z2">
+        <form [formGroup]="contactForm" autocomplete="off" novalidate fxLayout="column wrap">
+          <div class="row pt-2 pr-2 pl-2">
+            <div class="col-sm-12 col-md-6 col-xl-3">
+              <input-search-box-field [allowNullable]="true"
+                                      [placeHolder]="contactPlaceHolder"
+                                      (searchExecuted)="searchCustomer($event)"
+                                      [itemSource]="contactList"
+                                      [(selectedItem)]="contact"
+                                      (itemChanged)="setContact($event)"
+                                      ></input-search-box-field>
+            </div>
+
+            <div class="col-sm-12 col-md-6 col-xl-3">
+              <mat-form-field class="select-mat-form-field">
+                <mat-label i18n>Contact Type</mat-label>
+                <mat-select [(ngModel)]="reservation.Contact.ContactTypeId" formControlName="contactType"  required>
+                  <mat-option *ngFor="let contactType of contactTypeList" [value]="contactType.ContactTypeId">
+                    {{contactType.Name}}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="hasError('contactType', 'required')" i18n>Contact Type is required</mat-error>
+              </mat-form-field>
+            </div>
+
+            <div class="col-sm-12 col-md-6 col-xl-3">
+              <mat-form-field class="full-width">
+                  <mat-label i18n>Phone Number</mat-label>
+                  <input matInput [(ngModel)]="reservation.Contact.PhoneNumber" autocomplete="off" [ngModelOptions]="{standalone: true}">
+              </mat-form-field>
+            </div>
+
+            <div class="col-sm-12 col-md-6 col-xl-3">
+              <mat-form-field class="select-mat-form-field">
+                <mat-label i18n>Birth Date</mat-label>
+                <input matInput [matDatepicker]="dtpBirthDate" formControlName="birthDate" [(ngModel)]="reservation.Contact.BirthDate" required>
+                <mat-datepicker-toggle matSuffix [for]="dtpBirthDate"></mat-datepicker-toggle>
+                <mat-datepicker #dtpBirthDate></mat-datepicker>
+                <mat-error *ngIf="hasError('birthDate', 'required')" i18n>Birth Date is required.</mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+        </form>
+
+        <div class="row pt-2 pr-2 pl-2">
+          <div class="col-sm-12 col-md-12 col-xl-12">
+            <angular-editor [(ngModel)]="reservation.Content" [config]="config"></angular-editor>
+          </div>
+        </div>
+
+      </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="offset-sm-3 col-12 col-sm-6">
+        <div class="offset-sm-8 float-rigth">
+              <button class="custom-button select-mat-form-field"
+                      mat-button
+                      (click)="save()"
+                      [disabled]="!contactForm.valid"
+                      i18n>
+              SEND
+            </button>
+        </div>
+  </div>
+</div>
