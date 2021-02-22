@@ -40,6 +40,10 @@ export class SearchContactComponent implements OnInit {
     this.router.navigate(['create-contact']);
   }
 
+  navigateToCreateReservation(): void {
+    this.router.navigate(['create-reservation']);
+  }
+
   searchPager(page: PageEvent): void {
     this.getContactList(page.pageIndex);
   }

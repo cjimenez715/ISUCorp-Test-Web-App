@@ -121,8 +121,12 @@ export class CreateReservationComponent implements OnInit {
     });
   }
 
-  cancel(): void {
+  navigateToReservationList(): void {
     this.navigateBack();
+  }
+
+  navigateToContactList(): void {
+    this.router.navigate(['search-contact']);
   }
 
   private navigateBack(): void {

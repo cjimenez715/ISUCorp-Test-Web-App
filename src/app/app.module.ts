@@ -1,3 +1,4 @@
+import { TokenInterceptor } from './components/core/request-interceptor';
 
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatMenuModule } from '@angular/material/menu';
@@ -86,7 +87,8 @@ import { CommonModule } from '@angular/common';
   ],
   providers: [
     { provide: MatPaginatorIntl, useValue: GenericPaginatorIntl() },
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
 })

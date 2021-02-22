@@ -9,7 +9,13 @@ import { ReservationResult } from './models/reservation/reservation-result';
 })
 export class AppComponent {
 
-  constructor() {
+  componentName: string;
 
+  constructor() {
+    this.componentName = '';
+  }
+
+  onComponentChanged(componentName: string): void {
+    this.componentName = componentName;
   }
 }

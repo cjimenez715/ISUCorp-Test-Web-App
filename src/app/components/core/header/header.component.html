@@ -1,5 +1,51 @@
-<mat-toolbar>
+
+<mat-toolbar class="header mat-elevation-z4">
+  <div class="row col-12">
+    <div class="offset-sm-9 col-12">
+      <div class="d-block d-sm-none float-right">
+        <div *ngIf="currentComponentName === componentNameEnum._CreateContactComponent ||
+            currentComponentName === componentNameEnum._EditContactComponent">
+            <a routerLink="/search-contact">
+              <mat-icon>keyboard_arrow_left</mat-icon>
+              <div i18n>Contact List</div>
+            </a>
+        </div>
+
+        <div *ngIf="currentComponentName === componentNameEnum._SearchContactComponent">
+          <p class="link"><a routerLink="/create-contact">
+            <div i18n>Create Contact</div>
+            <mat-icon>keyboard_arrow_right</mat-icon>
+          </a></p>
+          <p class="link"><a routerLink="/create-reservation">
+            <mat-icon>keyboard_arrow_left</mat-icon>
+            <div i18n>Create Reservation</div>
+          </a></p>
+        </div>
+
+        <div *ngIf="currentComponentName === componentNameEnum._CreateReservationComponent">
+          <p class="link"><a routerLink="/search-contact">
+            <div i18n>Contact List</div>
+            <mat-icon>keyboard_arrow_right</mat-icon>
+          </a></p>
+          <p class="link"><a routerLink="/search-reservation">
+            <div i18n>Reservations List</div>
+            <mat-icon>keyboard_arrow_right</mat-icon>
+          </a></p>
+        </div>
+
+        <div *ngIf="currentComponentName === componentNameEnum._SearchReservationComponent">
+          <p class="link"><a routerLink="/create-reservation">
+            <mat-icon>keyboard_arrow_left</mat-icon>
+            <div i18n>Create Reservation</div>
+          </a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="toolbar" role="banner">
   </div>
 </mat-toolbar>
+
+
 

@@ -1,16 +1,40 @@
-.toolbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 100px;
-  width: 100%;
+.header {
   display: flex;
   align-items: center;
   background-image: url("../../../../assets/banner.jpg");
-  background-color: #cccccc;
-  color: white;
-  font-weight: 600;
+}
+
+.header a{
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.header .logo{
+  max-height: 32px;
+}
+
+.header .title-group{
+  padding-left: 25px;
+}
+
+.header .title-group i{
+  padding-right: 5px;
+  cursor: pointer;
+}
+
+mat-toolbar {
+  height: 64px;
+  position: fixed;
+  z-index: 100;
+  width: 100%  !important;
+}
+
+
+.toolbar {
+
+  background-image: url("../../../../assets/banner.jpg");
+
 }
  .toolbar span {
    padding-left: 50px;
@@ -18,6 +42,7 @@
  }
 
  .button {
+  position: fixed;
   background-color: darkslateblue;
   border-radius: 5px;
   color: white;

@@ -1,5 +1,6 @@
-import { Component, Inject, LOCALE_ID, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
+import { ComponentNameEnum } from './../../models/component-name-enum';
+import { Component, Input, OnInit } from '@angular/core';
 @Component({
   selector: 'header',
   templateUrl: './header.component.html',
@@ -7,9 +8,18 @@ import { Component, Inject, LOCALE_ID, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(@Inject(LOCALE_ID) protected localeId: string) { }
+  @Input() currentComponentName: string;
+
+  public get componentNameEnum(): typeof ComponentNameEnum {
+    return ComponentNameEnum;
+  }
+
+  constructor() {
+    this.currentComponentName = '';
+  }
 
   ngOnInit(): void {
+
   }
 
 }

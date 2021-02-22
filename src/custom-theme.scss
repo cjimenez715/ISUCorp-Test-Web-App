@@ -1,6 +1,5 @@
 
-// Custom Theming for Angular Material
-// For more information: https://material.angular.io/guide/theming
+// Custom Theming for Angular Material// For more information: https://material.angular.io/guide/theming
 @import '~@angular/material/theming';
 // Plus imports for other components in your app.
 
@@ -12,8 +11,8 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$ISUCorp-Test-Web-App-primary: mat-palette($mat-blue-grey);
-$ISUCorp-Test-Web-App-accent: mat-palette($mat-pink, A200, A100, A400);
+$ISUCorp-Test-Web-App-primary: mat-palette($mat-grey, 500);
+$ISUCorp-Test-Web-App-accent: mat-palette($mat-deep-orange, 900);
 $ISUCorp-Test-Web-App-warn: mat-palette($mat-red);
 
 $ISUCorp-Test-Web-App-theme: mat-light-theme($ISUCorp-Test-Web-App-primary, $ISUCorp-Test-Web-App-accent, $ISUCorp-Test-Web-App-warn);
@@ -22,12 +21,17 @@ $ISUCorp-Test-Web-App-theme: mat-light-theme($ISUCorp-Test-Web-App-primary, $ISU
 
 // Drow Overlay Theme used in File Preview Overlay Part
 // Control the color of File Preview Overlay Spinner
-.drow-overlay-theme {
-  $drow-overlay-primary: mat-palette($mat-blue-grey, 50);
 
-  $drow-overlay-theme: mat-light-theme($drow-overlay-primary, $ISUCorp-Test-Web-App-accent, $ISUCorp-Test-Web-App-warn);
-
-  @include angular-material-theme($drow-overlay-theme);
+.alternative {
+  $ISUCorp-Test-Web-App-primary: mat-palette($mat-grey, 500);
+  $ISUCorp-Test-Web-App-accent: mat-palette($mat-deep-orange, 900);
+  $ISUCorp-Test-Web-App-theme: mat-light-theme((
+  color: (
+    primary: $ISUCorp-Test-Web-App-primary,
+    accent: $ISUCorp-Test-Web-App-accent
+  )
+  ));
+  @include angular-material-theme($ISUCorp-Test-Web-App-theme);
 }
 
 
