@@ -2,6 +2,10 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.1.
 
+## Install
+
+Execute `npm install` in order to get all dependencies.
+
 ## Development Settings
 Current Server Url is hardcoded. BackEnd is correctly configured as `https://localhost:5001`, but change it if it is necessary.
 File: contact.service.ts `https://localhost:5001/api/contact;`
