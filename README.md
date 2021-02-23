@@ -2,25 +2,34 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.1.
 
-## Development server
+## Development Settings
+Current Server Url is hardcoded. BackEnd is correctly configured as `https://localhost:5001`, but change it if it is necessary.
+File: contact.service.ts
+
+```typescript
+  export class ContactService {
+
+  private baseUrl = `https://localhost:5001/api/contact`;```
+  
+File: reservation.service.ts
+```typescript
+export class ReservationService {
+
+  private baseUrl = `https://localhost:5001/api/reservation`;```
+
+## Development server en-US
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Development server es-BO
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Run `ng serve --configuration=es` for a dev server. Navigate to `http://localhost:4200/`. The app will be translated to Spanish.
+
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Run `npm run build-locale` to build the project for both languages. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
 ## Further help
 
