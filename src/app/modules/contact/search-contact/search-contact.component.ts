@@ -19,7 +19,7 @@ export class SearchContactComponent implements OnInit {
   contactPager: PagerBase<ContactResult>;
 
   private _columns: Array<Column> = new Array<Column>();
-  get columns(): Array<Column>{
+  get columns(): Array<Column> {
     this._columns.push(new Column('Id', 'ContactId', PropertyTypeEnum.Number, 0));
     this._columns.push(new Column($localize`Name`, 'Name', PropertyTypeEnum.String, 230, true));
     this._columns.push(new Column($localize`Phone Number`, 'PhoneNumber', PropertyTypeEnum.String, 250, true));
@@ -49,12 +49,14 @@ export class SearchContactComponent implements OnInit {
   }
 
   daleteContact(contactId: number): void {
-    if(contactId){
-      this.isLoading = true;
-      this.contact$.delete(contactId).subscribe(() => {
-        this.isLoading = false;
-        this.getContactList(0);
-      });
+    if (confirm($localize`Are you sure to delete this contact?\nAll reservations related will be deleted too.`)) {
+      if (contactId) {
+        this.isLoading = true;
+        this.contact$.delete(contactId).subscribe(() => {
+          this.isLoading = false;
+          this.getContactList(0);
+        });
+      }
     }
   }
 

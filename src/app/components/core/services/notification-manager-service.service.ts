@@ -14,7 +14,7 @@ export class NotificationManagerService {
   showSuccess(message: string): void {
     this.zone.run(() => {
       this.snackBar.open(message, '', {
-        duration: 4000,
+        duration: 1500,
         horizontalPosition: 'right',
         verticalPosition: 'top',
         panelClass: ['msg-success']
@@ -25,7 +25,7 @@ export class NotificationManagerService {
   showError(message: string): void {
     this.zone.run(() => {
       this.snackBar.open(message, '', {
-        duration: 4000,
+        duration: 1500,
         horizontalPosition: 'right',
         verticalPosition: 'top',
         panelClass: ['msg-error']

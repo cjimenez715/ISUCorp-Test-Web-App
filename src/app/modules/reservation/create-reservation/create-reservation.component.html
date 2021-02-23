@@ -7,20 +7,20 @@
         </h1>
       </div>
       <div class="col-sm-12 col-md-6 col-xl-5">
-        <p>Featuring mouthwatering combinations with a choice of five different salads, six enticing appetizers, six main entrees and five choicest desserts. Free flowing bubbly and soft drinks. All for just $19.99 per person </p>
+        <p i18n>Featuring mouthwatering combinations with a choice of five different salads, six enticing appetizers, six main entrees and five choicest desserts. Free flowing bubbly and soft drinks. All for just $19.99 per person </p>
       </div>
       <div class="col-sm-12 col-md-12 col-xl-3 d-none d-sm-block">
         <div class="row">
           <div class="col-sm-12 col-md-12">
             <div class="float-right">
-              <button class="custom-button" mat-raised-button color="primary" (click)="navigateToContactList()">
+              <button class="md-button1" mat-raised-button color="primary" (click)="navigateToContactList()">
                 <span i18n>Contact List</span>
               </button>
             </div>
           </div>
           <div class="col-sm-12 col-md-12">
             <div class="float-right">
-              <button class="custom-button mt-3" mat-raised-button color="primary" (click)="navigateToReservationList()">
+              <button class="md-button1 mt-3" mat-raised-button color="primary" (click)="navigateToReservationList()">
                 Reservation List
               </button>
             </div>
@@ -90,11 +90,10 @@
 <div class="row alternative">
   <div class="offset-sm-3 col-12 col-sm-6">
         <div class="offset-sm-8 float-rigth">
-              <button class="custom-button select-mat-form-field"
+              <button class="md-button2 select-mat-form-field"
                       mat-raised-button
                       color="accent"
                       (click)="save()"
-                      [disabled]="!contactForm.valid"
                       i18n>
               SEND
             </button>

@@ -7,11 +7,11 @@
         </h1>
       </div>
       <div class="col-sm-12 col-md-6 col-xl-5">
-        <p>Featuring mouthwatering combinations with a choice of five different salads, six enticing appetizers, six main entrees and five choicest desserts. Free flowing bubbly and soft drinks. All for just $19.99 per person </p>
+        <p i18n>Featuring mouthwatering combinations with a choice of five different salads, six enticing appetizers, six main entrees and five choicest desserts. Free flowing bubbly and soft drinks. All for just $19.99 per person </p>
       </div>
       <div class="col-sm-12 col-md-12 col-xl-3 d-none d-sm-block">
         <div class="row float-right">
-          <button class="custom-button mr-2" mat-raised-button (click)="cancel()" i18n>Contact List</button>
+          <button class="md-button1 mr-2" mat-raised-button (click)="cancel()" i18n>Contact List</button>
         </div>
       </div>
     </div>
@@ -84,8 +84,7 @@
 <div class="row">
   <div class="offset-sm-3 col-12 col-sm-6">
     <div class="offset-sm-8 float-rigth">
-      <button class="select-mat-form-field mr-2" mat-raised-button color="primary"
-      [disabled]="!contactForm.valid"
+      <button class="md-button2 select-mat-form-field mr-2" mat-raised-button color="primary"
       (click)="update()" i18n>
       Update
       </button>

@@ -192,6 +192,21 @@
           <context context-type="linenumber">7</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="1983330522727996372" datatype="html">
+        <source>Featuring mouthwatering combinations with a choice of five different salads, six enticing appetizers, six main entrees and five choicest desserts. Free flowing bubbly and soft drinks. All for just $19.99 per person </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/reservation/search-reservation/search-reservation.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="435210092677661524" datatype="html">
+        <source>Are you sure to delete this contact?
+All reservations related will be deleted too.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/contact/search-contact/search-contact.component.ts</context>
+          <context context-type="linenumber">52</context>
+        </context-group>
+      </trans-unit>
     </body>
   </file>
 </xliff>

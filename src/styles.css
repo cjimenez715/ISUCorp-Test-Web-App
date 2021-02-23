@@ -9,14 +9,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 .msg-error {
-    background-color: red;
+    background-color:rgb(188, 0, 0);
     color: white;
     white-space: pre-wrap;
-}
-
-.msg-error button {
-    background-color:orangered;
-    color: white;
 }
 
 .msg-success{
@@ -137,3 +132,43 @@ a:active {
   color:  #ffffff;
   color: #CDFEAA;
 }
+
+.md-button1 {
+  height: 35px;
+  min-width: 160px;
+  border-radius: 2px;
+  font-size: 14px;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration:none;
+  border: none;
+  outline: none;
+  color: white;
+  background-color: rgb(159, 159, 159);
+}
+
+.md-button2 {
+  height: 35px;
+  min-width: 88px;
+  border-radius: 2px;
+  font-size: 14px;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration:none;
+  border: none;
+  outline: none;
+  color: white;
+  background-color: rgb(188, 0, 0);
+}
+.md-button3 {
+  height: 35px;
+  min-width: 30px;
+  border-radius: 2px;
+  font-size: 14px;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration:none;
+  background-color: rgb(159, 159, 159);
+}
+
+

@@ -32,13 +32,13 @@
               </div>
 
               <div *ngIf="showEditIcon">
-                  <button mat-icon-button color="primary" (click)="editEvent(row)" matTooltip="Editar">
+                  <button class="md-button3 mr-1" mat-icon-button (click)="editEvent(row)" matTooltip="Editar">
                       <mat-icon>edit</mat-icon>
                   </button>
               </div>
 
               <div *ngIf="showDeleteIcon">
-                  <button mat-icon-button color="primary" (click)="deleteEvent(row)" matTooltip="Eliminar">
+                  <button class="md-button3" mat-icon-button  (click)="deleteEvent(row)" matTooltip="Eliminar">
                       <mat-icon>delete</mat-icon>
                   </button>
               </div>
