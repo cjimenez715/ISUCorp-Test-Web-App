@@ -4,13 +4,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development Settings
 Current Server Url is hardcoded. BackEnd is correctly configured as `https://localhost:5001`, but change it if it is necessary.
-File: contact.service.ts
-
-```typescript
-  export class ContactService {
-  private baseUrl = https://localhost:5001/api/contact;```
+File: contact.service.ts `https://localhost:5001/api/contact;`
+File: reservation.service.ts `https://localhost:5001/api/reservation;`
   
-
 ## Development server en-US
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
